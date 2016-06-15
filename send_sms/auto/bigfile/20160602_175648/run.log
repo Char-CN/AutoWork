@@ -1,0 +1,21 @@
+2016-06-02 17:56:48 图片存放路径[/Users/hyy/FastWork/send_sms/auto/bigfile/20160602_175648] create success
+2016-06-02 17:56:48 默认userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1
+2016-06-02 17:56:48 系统参数 : sms.js,224981,haz_hddc3,Hengda@888,auto/bigfile/
+2016-06-02 17:56:48 打开主页
+2016-06-02 17:56:48 [onUrlChanged] http://ums.zj165.com/index.jsp
+2016-06-02 17:56:52 ==== 生成 picture_send1.png
+2016-06-02 17:56:52 填写登录信息
+2016-06-02 17:56:52 [onConsoleMessage] 获取网页标题 : 企业信息服务平台
+2016-06-02 17:56:53 ==== 生成 picture_send2.png
+2016-06-02 17:56:54 触发登录事件
+2016-06-02 17:56:55 [onUrlChanged] http://ums.zj165.com/main/index.do
+2016-06-02 17:56:56 ==== 生成 picture_send3.png
+2016-06-02 17:56:56 点击[短信标签页]
+2016-06-02 17:56:59 ==== 生成 picture_send4.png
+2016-06-02 17:57:00 填写[短信内容]
+2016-06-02 17:57:00 短信内容:感谢您对恒大厚爱！1000元现金券已加入账户，点击 t.cn/RqCXT8g 凭手机号和初始密码{密码}登录体验！退订回TD
+2016-06-02 17:57:00 短信长度:68个字符
+2016-06-02 17:57:01 ==== 生成 picture_send5.png
+2016-06-02 17:57:02 点击[使用个性化短信]
+2016-06-02 17:57:04 ==== 生成 picture_send6.png
+2016-06-02 17:57:05 点击[选择文件] 文件路径:list.txt

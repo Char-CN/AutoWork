@@ -1,5 +1,7 @@
 var mobile = "";
 var currentTime = "";
+var zc_url = "https://hft02.evergrande.com/wechatPage/newRegisterPage.html?type=1&id=2762b1f9aa1e447cab317ea8ccf22a66";
+var address_area = "广东";
 function Self(url) {
 
 	/**
@@ -15,6 +17,7 @@ function Self(url) {
 	this.log_path = 'log';
 	this.pic_path = 'pic';
 	this.success_path = 'success';
+	this.fail_path = 'fail';
 
 	var setPicPath = function(p) {
 		this.pic_path = p;
@@ -97,6 +100,11 @@ function Self(url) {
 		this.log('==== 生成 ' + this.success_path + "/" + currentTime + "_" + mobile + '_' + step + '.png');
 	};
 
+	this.fail_render = function(step) {
+		this.page.render(this.fail_path + "/" + currentTime + "_" + mobile + '_' + step + '.png');
+		this.log('==== 生成 ' + this.fail_path + "/" + currentTime + "_" + mobile + '_' + step + '.png');
+	};
+
 	// 检查id是否存在
 	this.existsId = function(id) {
 		return this.page.evaluate(function(id) {
@@ -125,6 +133,7 @@ function Self(url) {
 
 var self = new Self('');
 var self2 = new Self('');
+self.log('\n\n');
 self.log('系统参数 : ' + self.args);
 
 setTimeout(function() {
@@ -154,7 +163,7 @@ setTimeout(function() {
 setTimeout(function() {
 	self.log('api获取手机号码');
 	var pid = "1783"
-	var address = encodeURIComponent("湖南");
+	var address = encodeURIComponent(address_area);
 	var url = "http://api.jmyzm.com/http.do?action=getMobilenum&pid=" + pid + "&uid=blazer111&token=" + token + "&mobile=&size=1&province=" + address;
 	self.page.open(url, function(status) {
 		if (status != "success") {
@@ -181,9 +190,9 @@ setTimeout(function() {
 }, self.wait());
 
 setTimeout(function() {
-	var url = 'https://hft02.evergrande.com/wechatPage/newRegisterPage.html?type=1&id=4713e7edf0254b8a996b2bcc113f64d4';
+	//	var zc_url = 'https://hft02.evergrande.com/wechatPage/newRegisterPage.html?type=1&id=4713e7edf0254b8a996b2bcc113f64d4';
 	self2.log('web打开恒房通页面');
-	self2.page.open(url, function(status) {
+	self2.page.open(zc_url, function(status) {
 		if (status != "success") {
 			phantom.exit();
 		}
@@ -270,6 +279,8 @@ var forCode = function() {
 				}, self2);
 				if (rst) {
 					self2.success_render(self.next());
+				} else {
+					self2.fail_render(self.next());
 				}
 				self.log("api加入黑名单。");
 				var pid = "1783"

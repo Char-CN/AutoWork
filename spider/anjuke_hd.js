@@ -154,12 +154,6 @@ console.log('length:', arr.length);
 // }
 // });
 // }
-var sleep = function(milliseconds) {
-    var start = new Date().getTime(); 
-    while ((new Date().getTime() - start) < milliseconds){
-        // Do nothing
-    }
-};
 
 var aaa = function(index) {
 	// http://as.fang.anjuke.com/loupan/s?kw=恒大
@@ -170,9 +164,7 @@ var aaa = function(index) {
 	city.page.open(url, function(status) {
 		city.log("Status: " + status);
 		if (status != "success") {
-			// phantom.exit();
-			city.log("sleep 30s");
-			sleep(30000);
+//			phantom.exit();
 			aaa(index);
 		} else {
 			var arr = city.page.evaluate(function() {

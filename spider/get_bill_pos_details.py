@@ -31,10 +31,10 @@ headers = {
 
 def get_success_vcode(opener):
     picture = opener.open("https://bill.sand.com.cn/pages/verifyCode.jsp?flag=1499153731969").read()
-    local = open('yzm.jpeg', 'wb')
+    local = open('yzm_pos_details.jpeg', 'wb')
     local.write(picture)
     local.close()
-    image = Image.open('yzm.jpeg')
+    image = Image.open('yzm_pos_details.jpeg')
     image.load()
     vcode = pytesseract.image_to_string(image)
     if len(str(vcode)) != 4:
@@ -68,6 +68,7 @@ def get_data_by_page(opener, formdata, error_count):
         data = json.loads(response)
         return data
     except Exception, e:
+        print e
         error_count += 1
         return get_data_by_page(opener, formdata, error_count)
 
@@ -116,12 +117,15 @@ if __name__ == '__main__' :
         data_file = open(output_file_name, 'w+')
         current_page = 1
         total = None
+        count = 0
         while total == None or current_page <= total:
             formdata = {
-                'beginDate' : start.strftime("%Y-%m-%d"),
-                'endDate' : start.strftime("%Y-%m-%d"),
+                'beginDate' : '',
+                'endDate' : '',
                 'currentPage':str(current_page),
                 'merCode':'',
+                'accBeginDate':start.strftime("%Y-%m-%d"),
+                'accEndDate':start.strftime("%Y-%m-%d"),
                 'cardType':'0',
                 'tmlCode':'',
                 'txnType':'0',
@@ -157,6 +161,7 @@ if __name__ == '__main__' :
                     print row_str
                 data_file.write(row_str + '\n')
                 data_file.flush()
+                count += 1
             current_page += 1
+        print start.strftime("%Y-%m-%d") + ' data total count : ', count
         start += delta
-

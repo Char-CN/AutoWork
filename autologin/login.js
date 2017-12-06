@@ -142,7 +142,7 @@ setTimeout(function() {
 setTimeout(function() {
 	self.page.evaluate(function(params) {
 		$('#password_name').val('heyunyang');
-		$('#password_pwd').val('BIGDATA4646c');
+		$('#password_pwd').val('BIGDATA4646e');
 		$('#password_submitBtn').click();
 	});
 }, self.wait(5000));
